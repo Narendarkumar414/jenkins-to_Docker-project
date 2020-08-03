@@ -59,7 +59,7 @@ pipeline {
             steps {
                 script {
                     sh "ssh -i /home/ubuntu/madhur.pem ubuntu@100.26.227.164 sudo docker pull 10141730/helloworld:v_${BUILD_NUMBER}"
-                    sh "ssh -i /home/ubuntu/madhur.pem ubuntu@100.26.227.164 sudo docker ps"
+                    sh "ssh -i /home/ubuntu/madhur.pem ubuntu@100.26.227.164 sudo docker ps; sudo docker kill hello-world; sudo docker rm hello-world; sudo docker run -it -p 8080:8080 --name hello-world -d 10141730/helloworld:v_${BUILD_NUMBER}; sudo docker ps"
                 }
             }
         }

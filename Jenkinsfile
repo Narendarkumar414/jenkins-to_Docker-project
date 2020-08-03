@@ -58,7 +58,8 @@ pipeline {
         stage('runn docker container for assignment') {
             steps {
                 script {
-                    sh "ssh -i /home/ubuntu/madhur.pem ubuntu@100.26.227.164 sudo docker pull 10141730/helloworld:v_${BUILD_NUMBER}; sudo docker ps"
+                    sh "ssh -i /home/ubuntu/madhur.pem ubuntu@100.26.227.164 sudo docker pull 10141730/helloworld:v_${BUILD_NUMBER}"
+                    sh "ssh -i /home/ubuntu/madhur.pem ubuntu@100.26.227.164 sudo docker ps"
                 }
             }
         }
